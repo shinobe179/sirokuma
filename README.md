@@ -19,9 +19,9 @@ sirokuma は以下のようなオブジェクトから構成されています�
 | Destination  | sirokuma.Destination |                   ログの保存先を抽象化したインターフェイス。                   |
 |    Stream    |   sirokuma.Stream    | Source と Destination をグルーピングし、実行管理のためのタグを管理するクラス。 |
 
-### Source と Stream
+### Source と Destination
 
-Source と Stream は、Amazon S3 や標準入出力などの主要なログの保存場所を抽象化したサブパッケージを持つ想定で作っています。  
+Source と Destination は、Amazon S3 や標準入出力などの主要なログの保存場所を抽象化したサブパッケージを持つ想定で作っています。  
 以下のようなインポートパスで使えます。
 
 ```python
