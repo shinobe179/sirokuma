@@ -36,7 +36,7 @@ Source の戻り値は、`typing.IO[bytes]`を満たす必要があります。
 
 ### 基本的な使い方
 
-examples/01/how_to_use/main.py を参考に説明します。
+examples/01_how-to-use/main.py を参考に説明します。
 
 - Sirokuma に、Stream のリストを与えて宣言します。
 - 各 Stream は、引数として以下のオブジェクトを持ちます。
@@ -89,3 +89,9 @@ poller.run_all_tags_matched(tags)
 print('# run_all runs all streams. You need kakuko to do that.')
 poller.run_all(kakugo=True)
 ```
+
+### クラウドにおける使い方
+
+examples/02_usecase-on-cloud/main.py を参考に説明します。
+
+sirokuma で作った Python ファイルをクラウドサービス上のコンテナサービスや関数実行サービスでホストし、それらを Amazon EventBridge などのスケジューラで定期実行することを想定して作っています。タグの指定は、スケジューラが実行時引数として指定することを想定しています。
