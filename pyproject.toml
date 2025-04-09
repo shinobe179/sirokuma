@@ -1,13 +1,14 @@
 [project]
-name = "tid"
+name = "sirokuma"
 version = "0.1.0"
-description = "Add your description here"
+description = "tag-based log polling library"
 readme = "README.md"
 authors = [
     { name = "shinobe179", email = "befs.anne@gmail.com" }
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "mypy>=1.15.0",
     "pydantic>=2.11.2",
 ]
 

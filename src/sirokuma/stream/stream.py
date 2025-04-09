@@ -1,7 +1,7 @@
 from typing import List
 
-from tid.source import Source
-from tid.destination import Destination
+from sirokuma.source import Source
+from sirokuma.destination import Destination
 
 
 class Stream:
@@ -13,8 +13,8 @@ class Stream:
         """constructor of Stream.
 
         Args:
-            src (Source): 
-            dst (Destination): 
+            src (sirokuma.Source):
+            dst (sirokuma.Destination):
         """        
         self.src  = src
         self.dst  = dst
