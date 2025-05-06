@@ -1,1 +1,1 @@
-from .sirokuma import Sirokuma
+from .sirokuma import Sirokuma, Stream
