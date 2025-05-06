@@ -2,7 +2,7 @@ from typing import List
 
 from .stream import Stream
 
-# TID manages stream processing.
+# Sirokuma manages stream processing.
 class Sirokuma:
 
     def __init__(self, streams: List[Stream], dry_run: bool = False):
