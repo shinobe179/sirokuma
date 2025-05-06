@@ -23,6 +23,7 @@ class Bucket(Source):
     def crawl(self):
         try:
             objects = self.s3_client.list_objects_v2(Bucket=self.bucket_name, Prefix=self.prefix)
+            print(self.bucket_name, self.prefix)
             if 'Contents' in objects:
                 for obj in objects['Contents']:
                     object_key = obj['Key']
