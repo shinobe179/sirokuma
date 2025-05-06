@@ -6,7 +6,7 @@ import gzip
 import os
 from datetime import datetime
 
-class S3Bucket(Destination):
+class Bucket(Destination):
     def __init__(self, region_name, bucket_name, compress=False):
         self.bucket_name = bucket_name
         self.s3_client = boto3.client('s3', region_name=region_name)

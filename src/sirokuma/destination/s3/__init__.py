@@ -1,1 +1,1 @@
-from .s3 import S3Bucket
+from .s3 import Bucket
