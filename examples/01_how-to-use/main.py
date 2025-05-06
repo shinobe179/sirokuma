@@ -8,16 +8,19 @@ poller = sirokuma.Sirokuma([
     Stream(
             File('land_animals.txt'),
             Stdout(),
+            'land-animal_to_stdout',
             ['land'],
         ),
     Stream(
             File('sea_animals.txt'),
             Stdout(),
+            'sea-animal_to_stdout',
             ['sea'],
         ),
     Stream(
             File('sky_animals.txt'),
             Stdout(),
+            'sky-animal_to_stdout',
             ['sky'],
         ),
     ])
