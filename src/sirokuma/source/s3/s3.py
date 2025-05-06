@@ -1,12 +1,13 @@
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
 from sirokuma.source import Source
-from typing import IO
+
 
 class Bucket(Source):
-    def __init__(self, bucket_name):
+    def __init__(self, bucket_name, prefix):
         self.bucket_name = bucket_name
         self.s3_client = boto3.client('s3')
+        self.prefix = prefix
 
     def read_object(self, object_key):
         try:
@@ -19,9 +20,9 @@ class Bucket(Source):
         except Exception as e:
             raise Exception(f"Error reading object from S3: {str(e)}")
 
-    def crawl(self, prefix: str = '') -> IO[bytes]:
+    def crawl(self):
         try:
-            objects = self.s3_client.list_objects_v2(Bucket=self.bucket_name, Prefix=prefix)
+            objects = self.s3_client.list_objects_v2(Bucket=self.bucket_name, Prefix=self.prefix)
             if 'Contents' in objects:
                 for obj in objects['Contents']:
                     object_key = obj['Key']

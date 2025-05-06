@@ -7,10 +7,11 @@ import os
 from datetime import datetime
 
 class Bucket(Destination):
-    def __init__(self, region_name, bucket_name, compress=False):
+    def __init__(self, region_name, bucket_name, prefix, compress=False):
         self.bucket_name = bucket_name
         self.s3_client = boto3.client('s3', region_name=region_name)
         self.compress = compress
+        self.prefix = prefix
 
     def upload_file(self, file_name, object_name=None):
         if object_name is None:
@@ -32,9 +33,8 @@ class Bucket(Destination):
             else:
                 temp_file.write(data)
                 temp_file_path = temp_file.name
-        
-        prefix = datetime.now().strftime("%Y/%m/%d/%H/%M/")
-        object_name = prefix + datetime.now().strftime("%Y%m%dT%H%M")
+    
+        object_name = self.prefix + datetime.now().strftime("%Y%m%dT%H%M")
         if self.compress: object_name += '.gz'
         
         if os.path.exists(temp_file_path):
