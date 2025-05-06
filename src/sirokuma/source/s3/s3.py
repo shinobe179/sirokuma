@@ -4,9 +4,9 @@ from sirokuma.source import Source
 
 
 class Bucket(Source):
-    def __init__(self, bucket_name, prefix):
+    def __init__(self, region_name, bucket_name, prefix):
         self.bucket_name = bucket_name
-        self.s3_client = boto3.client('s3')
+        self.s3_client = boto3.client('s3', region_name=region_name)
         self.prefix = prefix
 
     def read_object(self, object_key):
