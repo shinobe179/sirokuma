@@ -32,7 +32,7 @@ from sirokuma.destination.stdout import Stdout
 ```
 
 サブパッケージの開発にあたっては、ABC を使った抽象基底クラス（インターフェイス）である Source と Stream を継承して作成します。  
-Source の戻り値は、`typing.IO[bytes]`を満たす必要があります。
+Source の戻り値は、`bytes`を満たす必要があります。
 
 ### 基本的な使い方
 

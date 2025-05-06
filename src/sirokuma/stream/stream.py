@@ -9,7 +9,7 @@ class Stream:
        Stream can select processing streams by tags.
     """
 
-    def __init__(self, src: Source, dst: Destination, tags: List[str]):
+    def __init__(self, src: Source, dst: Destination, id: str, tags: List[str]):
         """constructor of Stream.
 
         Args:
@@ -18,6 +18,7 @@ class Stream:
         """        
         self.src  = src
         self.dst  = dst
+        self.id   = id
         self.tags = tags
 
     def with_tags(self, tags: List[str]):
