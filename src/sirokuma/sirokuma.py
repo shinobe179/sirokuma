@@ -13,7 +13,8 @@ class Sirokuma:
         if self.dry_run:
             print(f"Simulating: Saving data from {stream.src} to {stream.dst}")
         else:
-            stream.dst.save(stream.src.crawl())
+            for data in stream.src.crawl():
+                stream.dst.save(data)
 
     def run_all(self, kakugo=False):
         if kakugo:
